@@ -1,6 +1,58 @@
 <?php
 
-print_r($_POSt);
+$db_username ="drago";
+$db_password="ada";
+
+/*function login($db_usr,$db_psw){
+    if (isset($_POST) && !empty($_POST)) {
+        if(isset($_POST["username"]) &&
+            !empty($_POST["password"])&&
+            isset($_POST["password"])&&
+            !empty($_POST["username"])){
+            if (
+                $_POST["password"]===$db_psw &&
+                $_POST["username"]===$db_usr
+            ){
+                header("Location:welcome.php");
+            }else{
+                header("Location:upr3.php");
+            }
+        }else {
+            echo "Missing data";
+
+        }
+    }
+}*/
+//login("dr","1235");
+
+class Authentication{
+    private $db_usr ="drago";
+    private $db_psw= "1234";
+    public function login(){
+if (isset($_POST) && !empty($_POST)) {
+    if(isset($_POST["username"]) &&
+        !empty($_POST["password"])&&
+        isset($_POST["password"])&&
+        !empty($_POST["username"])){
+        if (
+            $_POST["password"]===$this->db_psw &&
+            $_POST["username"]===$this->db_usr
+        ){
+            header("Location:welcome.php");
+        }else{
+            header("Location:upr3.php");
+        }
+    }else {
+        echo "Missing data";
+
+    }
+
+}
+}
+}
+$auth= new Authentication();
+$auth->login();
+
 
 ?>
 
@@ -147,10 +199,10 @@ print_r($_POSt);
 
         <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required>
+            <input type="text" placeholder="Enter Username" name="username" >
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
+            <input type="password" placeholder="Enter Password" name="password" >
 
             <button type="submit">Login</button>
             <label>
